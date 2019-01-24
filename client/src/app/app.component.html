@@ -1,0 +1,15 @@
+
+<fieldset>
+  <legend><h2>New Form</h2></legend>
+  <form (submit)="newHero()">
+    <p>Alias <input type="text" name="alias" [(ngModel)]="hero.alias" /></p>
+    <p>Secret Identity <input type="text" name="secret" [(ngModel)]="hero.secret" /></p>
+    <p>Description <input type="text" name="description" [(ngModel)]="hero.description" /></p>
+    <input type="submit" value="Create a Hero" />
+  </form>
+</fieldset>
+
+{{ heroes | json }}
+
+
+<router-outlet></router-outlet>
