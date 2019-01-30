@@ -32,5 +32,20 @@ export class AppComponent {
     });
   }
 
+  imageAdded(e){
+    console.log("someone added an image", e);
+    let _this = this;        
+    let file = e.target.files[0];        
+    let reader = new FileReader();        
+    reader.addEventListener("load", function() {                
+        _this.hero['filename'] = file.name;                
+        _this.hero['image'] = reader.result;    
+        console.log(_this.hero);                  
+    }, false);
+    if (file) {              
+        reader.readAsDataURL(file);        
+    }
+  }
+
 
 }

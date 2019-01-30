@@ -5,11 +5,15 @@
     <p>Alias <input type="text" name="alias" [(ngModel)]="hero.alias" /></p>
     <p>Secret Identity <input type="text" name="secret" [(ngModel)]="hero.secret" /></p>
     <p>Description <input type="text" name="description" [(ngModel)]="hero.description" /></p>
+    <p>Image <input type="file" (change)="imageAdded($event)"></p>
     <input type="submit" value="Create a Hero" />
   </form>
 </fieldset>
 
-{{ heroes | json }}
-
+<div *ngFor="let hero of heroes">
+  <h3>{{ hero.alias }} ({{ hero.secret }})</h3>
+  <p>{{ hero.description }}</p>
+  <img src="/media/{{ hero.image }}" alt="an image">
+</div>
 
 <router-outlet></router-outlet>
